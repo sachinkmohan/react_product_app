@@ -1,19 +1,18 @@
 class ProductList extends React.Component {
   render() {
-    const product = Seed.products[0];
-    return (
-      <div className="ui stackable items">
-        <Product
-          id={product.id}
-          title={product.title}
-          description={product.description}
-          url={product.url}
-          votes={product.votes}
-          submitterAvatarUrl={product.submitterAvatarUrl}
-          productImageUrl={product.productImageUrl}
-        />
-      </div>
-    );
+    const productComponents = Seed.products.map((product) => (
+      <Product
+        key={"product-" + product.id}
+        id={product.id}
+        title={product.title}
+        description={product.description}
+        url={product.url}
+        votes={product.votes}
+        submitterAvatarUrl={product.submitterAvatarUrl}
+        productImageUrl={product.productImageUrl}
+      />
+    ));
+    return <div className="ui stackable items">{productComponents}</div>;
   }
 }
 
